@@ -1,0 +1,55 @@
+#!/bin/bash
+
+#Questo è un programma sviluppato per risolvere le moltitudini di problemi che sto avendo con i ppa, quindo spero vivamente che funzioni"
+
+list(){
+echo "Ecco a te i tuoi ppa: "
+sudo ls /etc/apt/sources.list.d
+echo "Prego..."
+}
+
+
+
+remove(){
+echo "Ecco una lista dei tuoi ppa, copia quello che vuoi rimuovere:"
+sudo ls /etc/apt/sources.list.d
+echo "Ora incolla qui sotto il ppa che vuoi rimuovere:"
+read ppaname
+sudo rm -i /etc/apt/sources.list.d/$ppaname
+echo "Ti do il consenso per ringraziarmi"
+}
+
+help(){
+cat<<_EOF_
+Boh, sei proprio disinformato, o non stai usando questo script da secoli.
+Comandi:
+	ppa --remove = inizio cancellamento ppa desiderato
+	ppa --list = ti fornisce una lista dei tuoi ppa
+	ppa --help = guess
+
+_EOF_
+}
+
+#execution
+
+echo "Benvenuto nel mio ppa deleter, qui potrai facilmente cancellare i ppa di cui non hai piu bisogno! 
+Developed by Luigi Colella, all rights deserved.
+Perfetto, se non sei ancora passato all'azione, chiama la funzione help, per ulteriori informazioni"
+
+if [ "$1" == "--remove" ]; then
+	clear 
+	remove
+	exit
+fi
+
+if [ "$1" == "--list" ]; then
+	clear
+	list
+	exit
+fi
+
+if [ "$1" == "--help" ]; then
+	clear
+	help
+	exit
+fi

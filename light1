@@ -1,0 +1,42 @@
+#!/bin/bash
+night(){
+echo "starting night mode..."
+gsettings set org.gnome.desktop.interface gtk-theme "Mc-OS-MJV-Dark-Gn3.32-V.2.1"
+#gsettings set org.gnome.desktop.background picture-uri file:///home/Immagini/test.jpg
+#gnome-tweaks
+}
+
+day(){
+echo "starting day mode..."
+gsettings set org.gnome.desktop.interface gtk-theme "Ant-Nebula"
+#gsettings set org.gnome.desktop.background picture-uri file:///home/Immagini/27p.jpg
+#gnome-tweaks
+}
+
+help(){
+cat<<_EOF_
+this eBic command let me, and only me, changing my theme and backgroung when it turs out that 
+it's night, so it set a dark wallpaper and theme.
+Comands:
+	light --nightmode = guess
+	light --daymode = guess
+_EOF_
+}
+
+if [ "$1" == "--nightmode" ]; then
+	clear
+	night
+	exit
+fi
+
+if [ "$1" == "--daymode" ]; then
+	clear	
+	day
+	exit	
+fi
+
+if [ "$1" == "--help" ]; then
+	help
+	exit
+fi
+

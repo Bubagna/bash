@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo gsettings set org.gnome.desktop.interface gtk-theme "Yaru"
+
